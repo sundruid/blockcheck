@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# written by sundruid
+
 import subprocess
 
 blockCount = subprocess.check_output("bitcoin-cli -conf=/bitcoin_data/.bitcoin/bitcoin.conf getblockcount", shell=True)
