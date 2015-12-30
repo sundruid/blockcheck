@@ -1,0 +1,20 @@
+#!/usr/bin/python
+
+import subprocess
+
+blockCount = subprocess.check_output("bitcoin-cli -conf=/data/bitcoin/.bitcoin/bitcoin.conf getblockcount", shell=True)
+blockChain = subprocess.check_output("curl --silent https://blockchain.info/q/getblockcount", shell=True)
+
+blockChain = int(blockChain)
+blockCount = int (blockCount)
+
+
+blockDiff= blockChain - blockCount
+
+
+if blockDiff == 0:
+        print 'blockchain is in sync'
+else:
+        print blockCount, ' of ', blockChain, 'completed - ', blockDiff, ' to go'
+
+
